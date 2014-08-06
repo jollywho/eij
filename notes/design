@@ -2,6 +2,9 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━(EIJ)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+EDict and Kandidamage wrapped together into one with color
+indication.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━(Examples)━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -133,7 +136,16 @@ $eij hana 1 -d 2 2 -d a 2 -k
 >2 strokes
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-C)━━━━━━━━━━━━━━━━━━━━━━(Problems)━━━━━━━━━━━━━━━━━━━━━━━━━━
+C)━━━━━━━━━━━━━━━━━━━━━━(Color)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+numbers all uniform color with bg
+inner-selectable item unique color each without bg
+  punctuation on inner-select line as default color
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+D)━━━━━━━━━━━━━━━━━━━━━━(Problems)━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 P-1) find selected kanji
@@ -147,3 +159,17 @@ S-2) regex changes from '^number*.$' to 'mutants:\n(*.*)\n'
 
 P-3) iterative options
 
+P-4) colorization
+S-4)
+```
+class String
+  # colorization
+  def colorize(color_code)
+    "\e[#{color_code}m#{self}\e[0m"
+  end
+
+  def red
+    colorize(31)
+  end
+end
+```
