@@ -10,16 +10,39 @@
 A)━━━━━━━━━━━━━━━━━━━━━━(Kanji)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-$eij hana
->1 花
->
->2 flower
+$eij flower -j
+>1 草花
+>(くさばな)
+>2 精華
+>(せいか)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-$eij hana 2
+$eij flower -j 2
+>精華
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij flower -j 1 b
+>花
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana -e
+>1 花 flower
+>2 華 flower, petal
+>3 端 edge, tip, point, end
+>4 鼻 nose
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana -e 2
+>華 flower, petal
+#defaults to [a]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana -e 2 b
 >flower
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-$eij hana 1
->花
+$eij hana -e 2 c
+>petal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana -e 2 a -j
+>1 草花
+>(くさばな)
+>2 精華
+>(せいか)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 B)━━━━━━━━━━━━━━━━━━━━━━(Damage)━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -38,9 +61,11 @@ $eij hana 1 -d
 >
 >ONYOMI: KA
 >
->You can think of the top part as the bottom of your nose, with 2 little puffs of pollen going in as you smell the flower.
+>You can think of the top part as the bottom of your nose,
+>with 2 little puffs of pollen going in as you smell the flower.
 >
->the Wizard transforms your CAR into a flower. (Actually the wizard's kind of a hater.)
+>the Wizard transforms your CAR into a flower. (Actually the
+>wizard's kind of a hater.)
 >
 >KUNYOMI:
 >
@@ -64,7 +89,8 @@ $eij hana 1 -d
 >4 花 	flower 	POLLEN 	Horny
 >5 死 	death 	EVENING 	夕
 >
->For the sake of this mnemonic, let's call the 2 vertical strokes on the flower's top radical . . . 2 spores of pollen.
+>For the sake of this mnemonic, let's call the 2 vertical
+>strokes on the flower's top radical . . . 2 spores of pollen.
 >
 >The poison flower has POLLEN that you're breathing,
 >
