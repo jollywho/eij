@@ -1,0 +1,123 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━(EIJ)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━(Examples)━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A)━━━━━━━━━━━━━━━━━━━━━━(Kanji)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$eij hana
+>1 花
+>
+>2 flower
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 2
+>flower
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1
+>花
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+B)━━━━━━━━━━━━━━━━━━━━━━(Damage)━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$eij hana 1 -d
+>Number: 65
+>花 flower
+>Star-16Star-16Star-16Star-16Star-16
+>7 strokes
+>MR, PN, DUPE
+>1 Flower A (flowertop) + 化  B (transform) (Same-ON)
+>MUTANTS:
+>
+>Flower
+>    flowertop
+>
+>ONYOMI: KA
+>
+>You can think of the top part as the bottom of your nose, with 2 little puffs of pollen going in as you smell the flower.
+>
+>the Wizard transforms your CAR into a flower. (Actually the wizard's kind of a hater.)
+>
+>KUNYOMI:
+>
+>はな
+>    flower
+>    Star-16Star-16Star-16Star-16Star-16
+>
+>JUKUGO:
+>
+>2 見 ( はなみ )
+>    cherry-blossom looking-at-and-getting-bombed parties (KUNKUN)
+>    花 (flower) + 見 (look) = 花見 (sakura-viewing party)
+>    Star-16Star-16Star-16
+>3 花火 ( はなび )
+>    fireworks (KUNKUN)
+>    花 (flower) + 火 (fire) = 花火 (fireworks)
+>    Star-16Star-16
+>
+>LOOKALIKES:
+>	Meaning 	Hint 	Radical
+>4 花 	flower 	POLLEN 	Horny
+>5 死 	death 	EVENING 	夕
+>
+>For the sake of this mnemonic, let's call the 2 vertical strokes on the flower's top radical . . . 2 spores of pollen.
+>
+>The poison flower has POLLEN that you're breathing,
+>
+>and then it makes you die in the EVENING.
+>USED IN:
+>
+>6    花
+>7    苦
+>8    草
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 3
+>花火
+#grabs first group after number
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 7
+>苦
+#grabs first group after number
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 3 b
+>火
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 3 b -d
+>Number: 47
+>火 fire
+>Star-16Star-16Star-16Star-16Star-16
+>1 人 (person) + 丶 (dot)
+...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 3 3 -d 1
+>人 (person)
+#split not specified. default [a] used
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 2 2 -d a 2
+>person
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+$eij hana 1 -d 2 2 -d a 2 -k
+>Number: 61
+>人 person
+>Star-16Star-16Star-16Star-16Star-16
+>2 strokes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+C)━━━━━━━━━━━━━━━━━━━━━━(Problems)━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+P-1) find selected kanji
+S-1) regex line between '^number*.$' and '^star*.$'
+first word is kanji. second word is keyword
+S-1a) map numbers to kanji and keywords
+show number when
+
+P-2) mutant keywords
+S-2) regex changes from '^number*.$' to 'mutants:\n(*.*)\n'
+
+P-3) iterative options
+
