@@ -173,3 +173,10 @@ class String
   end
 end
 ```
+P-5) autodetect cjk so kanji input doesnt need another option
+S-5)
+class String
+  def contains_cjk?
+    !!(self =~ /\p{Han}|\p{Katakana}|\p{Hiragana}|\p{Hangul}/)
+  end
+end
