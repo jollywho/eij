@@ -1,0 +1,54 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A)━━━━━━━━━━━━━━━━━━━━━━(Structure)━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+func -d damage
+func -e jpn->eng
+func -j eng->jpn
+
+loop opts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+B)━━━━━━━━━━━━━━━━━━━━━━(Dic)━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$je mousou
+>Found 1 items, similar to mousou.
+>-->JE-EDICT_Kanji
+>-->mouso
+>1. 妄想 wild idea, delusion  2. 盲想 wild idea, delusion
+
+-show only word match and translation line 1
+-label first match as 'A'
+-split translation lines by "#." onto newlines. keep #s
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$je shine
+>Found 10 items, similar to shine.
+>-->JE-EDICT_Kanji
+>-->seinen
+>
+>1. 成年 majority, adult age  2. 生年 the year of a person's birth, age  3. 青
+>
+>-->JE-EDICT_Kanji
+>-->shien
+>
+>1. 支援 support (vs), backing, aid  2. 紫煙 purple smoke, tobacco smoke
+>
+>-->JE-EDICT_Kanji
+>-->shigen
+>
+>1. 至言 wise saying  2. 資源 resources
+
+-show only word matches and their lines.
+-label matches a-z,aa-zz, ...
+-split translation lines by "#." onto newlines. keep #s
+-input is selected by "eij shine -e a,1,2"
+e.g.
+$eij shine -e a,1
+>成年 majority, adult age
+$eij shine -e a,1,2
+>majority
+$eij shine -e a,1,1
+>成年
