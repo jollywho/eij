@@ -3,7 +3,7 @@
 sdcv_lookup()
 {
   m=$(sdcv -n --data-dir $1 $2)
-  m=$(echo "$m" | sed 's/$/:@;\n/')
+  m=$(echo "$m" | sed 's/$/:@;\n/' | sed '/-->[jJ]/d')
   echo $m
 }
 
