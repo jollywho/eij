@@ -1,6 +1,6 @@
 require 'optparse'
 require './eij/string.rb'
-require './eij/jp.rb'
+require './eij/translator.rb'
 
 module Eij
 
