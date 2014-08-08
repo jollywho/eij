@@ -9,7 +9,7 @@ func -j eng->jpn
 loop opts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-B)━━━━━━━━━━━━━━━━━━━━━━(Dic)━━━━━━━━━━━━━━━━━━━━━━━━━
+B)━━━━━━━━━━━━━━━━━━━━━━━━━(Dic)━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 $je mousou
@@ -29,7 +29,8 @@ $je shine
 >-->JE-EDICT_Kanji
 >-->seinen
 >
->1. 成年 majority, adult age  2. 生年 the year of a person's birth, age  3. 青
+>1. 成年 majority, adult age  2. 生年 the year of a person's
+>birth, age  3. 青
 >
 >-->JE-EDICT_Kanji
 >-->shien
