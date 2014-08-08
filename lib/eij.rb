@@ -5,24 +5,28 @@ module Eij
 
   key = ARGV[0]
 
-  p %x{bash -lic 'source ./func.sh; ej #{key}'}
-  p key.contains_cjk?
+   key.contains_cjk?
 
   OptionParser.new { |opts|
     opts.banner = "Usage: #{File.basename($0)} key [-j word] | [-e word] | [-d num [char]]"
 
-    opts.on( '-j', '--japanese WORD', 'japanese') do |v|
-      puts v.red
+    opts.on( '-e', '--japanese [word]', 'to english') do |v|
+      res = %x{bash -c "source ./func.sh; je #{key}"}
+      res = res.gsub(":@;", "\n")
+      print res.blue
       #
     end
 
-    opts.on( '-e', '--english WORD', 'english') do |v|
-      puts v.bg_green
+    opts.on( '-j', '--english [word]', 'to japanese') do |v|
+      res = %x{bash -c 'source ./func.sh; ej #{key}'}
+      res = res.gsub(":@;", "\n")
+      print res.blue
       #
     end
 
-    opts.on( '-d', "--list NUM,char", Array, 'damage') do |v|
-      print v[0].blue, v[1].brown
+    opts.on( '-d', "--list [num[, char]]", Array, 'damage') do |v|
+      print v[0].red
+      print v[1].green
     end
 
   }.parse!
