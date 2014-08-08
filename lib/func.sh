@@ -32,3 +32,15 @@ ej()
   m=$(sdcv_lookup "/usr/share/stardict/ej/" $1)
   echo $m
 }
+
+# find key line in damage
+dfind()
+{
+  m=$(grep -A 1 'Number:' ../data/kanjidicks.txt | grep $1)
+  c=$(echo "$m" | wc -l)
+  if [[ -n "$m" && $c -eq 1 ]]; then
+    awk "/$m/{p=1}/Number:/{p=0}p" ../data/kanjidicks.txt
+  else
+    echo "No matches found: '$1'."
+  fi
+}

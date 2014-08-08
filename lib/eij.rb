@@ -25,8 +25,7 @@ module Eij
     end
 
     opts.on( '-d', "--list [num[, char]]", Array, 'damage') do |v|
-      print v[0].red
-      print v[1].green
+      a.lookup key
     end
 
   }.parse!
