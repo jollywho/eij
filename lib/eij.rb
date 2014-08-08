@@ -1,27 +1,27 @@
 require 'optparse'
 require './eij/string.rb'
+require './eij/jp.rb'
 
 module Eij
 
   key = ARGV[0]
+  ARGV.shift
 
-   key.contains_cjk?
+  a = Translator.new
+
+  if key.contains_cjk?
+    a.lookup key
+  end
 
   OptionParser.new { |opts|
-    opts.banner = "Usage: #{File.basename($0)} key [-j word] | [-e word] | [-d num [char]]"
+    opts.banner = "Usage: #{File.basename($0)} key [-j word] | [-e word] | [-d num[,char]]"
 
     opts.on( '-e', '--japanese [word]', 'to english') do |v|
-      res = %x{bash -c "source ./func.sh; je #{key}"}
-      res = res.gsub(":@;", "\n")
-      print res.blue
-      #
+      a.to_jap key
     end
 
     opts.on( '-j', '--english [word]', 'to japanese') do |v|
-      res = %x{bash -c 'source ./func.sh; ej #{key}'}
-      res = res.gsub(":@;", "\n")
-      print res.blue
-      #
+      a.to_eng key
     end
 
     opts.on( '-d', "--list [num[, char]]", Array, 'damage') do |v|

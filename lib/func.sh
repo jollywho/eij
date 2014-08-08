@@ -22,7 +22,8 @@ je()
 # internal use (CJK)
 jj()
 {
-  sdcv_lookup "/usr/share/stardict/jj/" $@ | nl
+  m=$(sdcv_lookup "/usr/share/stardict/jj/" $1)
+  echo $m
 }
 
 # en -> jp
