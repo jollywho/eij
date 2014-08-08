@@ -4,7 +4,7 @@
   name: branch_1
   pos: !ruby/object:Chishiki::Pos
     x: 0
-    y: 4
+    y: 6
     w: 0
     h: 0
   children:
@@ -13,7 +13,7 @@
     name: branch_2
     pos: !ruby/object:Chishiki::Pos
       x: 3
-      y: 6
+      y: 8
       w: 0
       h: 0
     children:
@@ -22,28 +22,28 @@
       name: branch_3
       pos: !ruby/object:Chishiki::Pos
         x: 6
-        y: 8
+        y: 10
         w: 0
         h: 0
       children: []
       txt: &7 !ruby/object:Chishiki::Text
         pos: !ruby/object:Chishiki::Pos
           x: 6
-          y: 8
+          y: 10
           w: 40
           h: 1
         list:
         - !ruby/object:Chishiki::Line
           pos: !ruby/object:Chishiki::Pos
             x: 6
-            y: 8
+            y: 10
             w: 40
             h: 1
           line: 0
           msg: split by character
           curs: !ruby/object:Chishiki::Pos
             x: 24
-            y: 8
+            y: 10
             w: 1
             h: 1
         index: 0
@@ -52,27 +52,27 @@
       node: &5 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: -16
-          y: 8
+          y: 10
           w: 0
           h: 0
         msg: "￭═o"
-        color: 1
+        color: 5
       marker: &4 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: 5
-          y: 8
+          y: 10
           w: 0
           h: 0
-        msg: "/"
+        msg: " "
         color: 2
       wpipe: &6 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: -12
-          y: 8
+          y: 10
           w: 0
           h: 0
         msg: "═════════════════"
-        color: 4
+        color: 5
       cib: 1
       height: 0
       created: false
@@ -80,7 +80,7 @@
         msg: "║"
         pos: !ruby/object:Chishiki::Pos
           x: -16
-          y: 7
+          y: 9
           w: 0
           h: 0
         parent: *2
@@ -88,7 +88,7 @@
         change: 2
         offset: -1
         amount: 1
-        color: 1
+        color: 5
       widgets:
       - *3
       - *4
@@ -101,28 +101,28 @@
       name: branch_3
       pos: !ruby/object:Chishiki::Pos
         x: 6
-        y: 10
+        y: 12
         w: 0
         h: 0
       children: []
       txt: &13 !ruby/object:Chishiki::Text
         pos: !ruby/object:Chishiki::Pos
           x: 6
-          y: 10
+          y: 12
           w: 40
           h: 1
         list:
         - !ruby/object:Chishiki::Line
           pos: !ruby/object:Chishiki::Pos
             x: 6
-            y: 10
+            y: 12
             w: 40
             h: 1
           line: 0
           msg: number each split
           curs: !ruby/object:Chishiki::Pos
             x: 23
-            y: 10
+            y: 12
             w: 1
             h: 1
         index: 0
@@ -131,15 +131,15 @@
       node: &11 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: -16
-          y: 10
+          y: 12
           w: 0
           h: 0
         msg: "￭═o"
-        color: 1
+        color: 5
       marker: &10 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: 5
-          y: 10
+          y: 12
           w: 0
           h: 0
         msg: " "
@@ -147,11 +147,11 @@
       wpipe: &12 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: -12
-          y: 10
+          y: 12
           w: 0
           h: 0
         msg: "═════════════════"
-        color: 1
+        color: 5
       cib: 1
       height: 0
       created: false
@@ -159,7 +159,7 @@
         msg: "║"
         pos: !ruby/object:Chishiki::Pos
           x: -16
-          y: 9
+          y: 11
           w: 0
           h: 0
         parent: *2
@@ -167,7 +167,7 @@
         change: 1
         offset: 0
         amount: 1
-        color: 1
+        color: 5
       widgets:
       - *9
       - *10
@@ -179,7 +179,7 @@
       name: branch_3
       pos: !ruby/object:Chishiki::Pos
         x: 6
-        y: 12
+        y: 14
         w: 0
         h: 0
       children:
@@ -188,7 +188,7 @@
         name: branch_4
         pos: !ruby/object:Chishiki::Pos
           x: 9
-          y: 14
+          y: 16
           w: 0
           h: 0
         children:
@@ -197,28 +197,28 @@
           name: branch_5
           pos: !ruby/object:Chishiki::Pos
             x: 12
-            y: 16
+            y: 18
             w: 0
             h: 0
           children: []
           txt: &20 !ruby/object:Chishiki::Text
             pos: !ruby/object:Chishiki::Pos
               x: 12
-              y: 16
+              y: 18
               w: 40
               h: 1
             list:
             - !ruby/object:Chishiki::Line
               pos: !ruby/object:Chishiki::Pos
                 x: 12
-                y: 16
+                y: 18
                 w: 40
                 h: 1
               line: 0
               msg: their heisig story
               curs: !ruby/object:Chishiki::Pos
                 x: 30
-                y: 16
+                y: 18
                 w: 1
                 h: 1
             index: 0
@@ -227,7 +227,7 @@
           node: &18 !ruby/object:Chishiki::Label
             pos: !ruby/object:Chishiki::Pos
               x: -10
-              y: 16
+              y: 18
               w: 0
               h: 0
             msg: "￭═o"
@@ -235,7 +235,7 @@
           marker: &17 !ruby/object:Chishiki::Label
             pos: !ruby/object:Chishiki::Pos
               x: 11
-              y: 16
+              y: 18
               w: 0
               h: 0
             msg: " "
@@ -243,7 +243,7 @@
           wpipe: &19 !ruby/object:Chishiki::Label
             pos: !ruby/object:Chishiki::Pos
               x: -6
-              y: 16
+              y: 18
               w: 0
               h: 0
             msg: "═════════════════"
@@ -255,7 +255,7 @@
             msg: "║"
             pos: !ruby/object:Chishiki::Pos
               x: -10
-              y: 15
+              y: 17
               w: 0
               h: 0
             parent: *15
@@ -275,28 +275,28 @@
           name: branch_5
           pos: !ruby/object:Chishiki::Pos
             x: 12
-            y: 18
+            y: 20
             w: 0
             h: 0
           children: []
           txt: &26 !ruby/object:Chishiki::Text
             pos: !ruby/object:Chishiki::Pos
               x: 12
-              y: 18
+              y: 20
               w: 40
               h: 1
             list:
             - !ruby/object:Chishiki::Line
               pos: !ruby/object:Chishiki::Pos
                 x: 12
-                y: 18
+                y: 20
                 w: 40
                 h: 1
               line: 0
               msg: kanji that use those radicals
               curs: !ruby/object:Chishiki::Pos
                 x: 41
-                y: 18
+                y: 20
                 w: 1
                 h: 1
             index: 0
@@ -305,7 +305,7 @@
           node: &24 !ruby/object:Chishiki::Label
             pos: !ruby/object:Chishiki::Pos
               x: -10
-              y: 18
+              y: 20
               w: 0
               h: 0
             msg: "￭═o"
@@ -313,7 +313,7 @@
           marker: &23 !ruby/object:Chishiki::Label
             pos: !ruby/object:Chishiki::Pos
               x: 11
-              y: 18
+              y: 20
               w: 0
               h: 0
             msg: " "
@@ -321,7 +321,7 @@
           wpipe: &25 !ruby/object:Chishiki::Label
             pos: !ruby/object:Chishiki::Pos
               x: -6
-              y: 18
+              y: 20
               w: 0
               h: 0
             msg: "═════════════════"
@@ -333,7 +333,7 @@
             msg: "║"
             pos: !ruby/object:Chishiki::Pos
               x: -10
-              y: 17
+              y: 19
               w: 0
               h: 0
             parent: *15
@@ -351,21 +351,21 @@
         txt: &31 !ruby/object:Chishiki::Text
           pos: !ruby/object:Chishiki::Pos
             x: 9
-            y: 14
+            y: 16
             w: 40
             h: 1
           list:
           - !ruby/object:Chishiki::Line
             pos: !ruby/object:Chishiki::Pos
               x: 9
-              y: 14
+              y: 16
               w: 40
               h: 1
             line: 0
             msg: list of radicals used
             curs: !ruby/object:Chishiki::Pos
               x: 30
-              y: 14
+              y: 16
               w: 1
               h: 1
           index: 0
@@ -374,7 +374,7 @@
         node: &29 !ruby/object:Chishiki::Label
           pos: !ruby/object:Chishiki::Pos
             x: -13
-            y: 14
+            y: 16
             w: 0
             h: 0
           msg: "￭═o"
@@ -382,7 +382,7 @@
         marker: &28 !ruby/object:Chishiki::Label
           pos: !ruby/object:Chishiki::Pos
             x: 8
-            y: 14
+            y: 16
             w: 0
             h: 0
           msg: " "
@@ -390,7 +390,7 @@
         wpipe: &30 !ruby/object:Chishiki::Label
           pos: !ruby/object:Chishiki::Pos
             x: -9
-            y: 14
+            y: 16
             w: 0
             h: 0
           msg: "═════════════════"
@@ -402,7 +402,7 @@
           msg: "║"
           pos: !ruby/object:Chishiki::Pos
             x: -13
-            y: 13
+            y: 15
             w: 0
             h: 0
           parent: *14
@@ -420,21 +420,21 @@
       txt: &37 !ruby/object:Chishiki::Text
         pos: !ruby/object:Chishiki::Pos
           x: 6
-          y: 12
+          y: 14
           w: 40
           h: 1
         list:
         - !ruby/object:Chishiki::Line
           pos: !ruby/object:Chishiki::Pos
             x: 6
-            y: 12
+            y: 14
             w: 40
             h: 1
           line: 0
           msg: 'argument # looks up that radical'
           curs: !ruby/object:Chishiki::Pos
             x: 38
-            y: 12
+            y: 14
             w: 1
             h: 1
         index: 0
@@ -443,15 +443,15 @@
       node: &35 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: -16
-          y: 12
+          y: 14
           w: 0
           h: 0
         msg: "￭═o"
-        color: 1
+        color: 5
       marker: &34 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: 5
-          y: 12
+          y: 14
           w: 0
           h: 0
         msg: " "
@@ -459,11 +459,11 @@
       wpipe: &36 !ruby/object:Chishiki::Label
         pos: !ruby/object:Chishiki::Pos
           x: -12
-          y: 12
+          y: 14
           w: 0
           h: 0
         msg: "═════════════════"
-        color: 1
+        color: 5
       cib: 7
       height: 0
       created: false
@@ -471,7 +471,7 @@
         msg: "║"
         pos: !ruby/object:Chishiki::Pos
           x: -16
-          y: 11
+          y: 13
           w: 0
           h: 0
         parent: *2
@@ -479,7 +479,7 @@
         change: 1
         offset: 0
         amount: 1
-        color: 1
+        color: 5
       widgets:
       - *33
       - *34
@@ -489,14 +489,14 @@
     txt: &42 !ruby/object:Chishiki::Text
       pos: !ruby/object:Chishiki::Pos
         x: 3
-        y: 6
+        y: 8
         w: 40
         h: 1
       list:
       - !ruby/object:Chishiki::Line
         pos: !ruby/object:Chishiki::Pos
           x: 3
-          y: 6
+          y: 8
           w: 40
           h: 1
         line: 0
@@ -504,7 +504,7 @@
           55+l6K2Y
         curs: !ruby/object:Chishiki::Pos
           x: 9
-          y: 6
+          y: 8
           w: 1
           h: 1
       index: 0
@@ -513,15 +513,15 @@
     node: &40 !ruby/object:Chishiki::Label
       pos: !ruby/object:Chishiki::Pos
         x: -19
-        y: 6
+        y: 8
         w: 0
         h: 0
       msg: "￭═o"
-      color: 5
+      color: 1
     marker: &39 !ruby/object:Chishiki::Label
       pos: !ruby/object:Chishiki::Pos
         x: 2
-        y: 6
+        y: 8
         w: 0
         h: 0
       msg: " "
@@ -529,11 +529,11 @@
     wpipe: &41 !ruby/object:Chishiki::Label
       pos: !ruby/object:Chishiki::Pos
         x: -15
-        y: 6
+        y: 8
         w: 0
         h: 0
       msg: "═════════════════"
-      color: 5
+      color: 1
     cib: 13
     height: 0
     created: false
@@ -541,7 +541,7 @@
       msg: "║"
       pos: !ruby/object:Chishiki::Pos
         x: -19
-        y: 5
+        y: 7
         w: 0
         h: 0
       parent: *1
@@ -549,68 +549,146 @@
       change: 2
       offset: -1
       amount: 1
-      color: 5
+      color: 1
     widgets:
     - *38
     - *39
     - *40
     - *41
     - *42
-  txt: &47 !ruby/object:Chishiki::Text
+  - &53 !ruby/object:Chishiki::Branch
+    parent: *1
+    name: branch_2
+    pos: !ruby/object:Chishiki::Pos
+      x: 3
+      y: 22
+      w: 0
+      h: 0
+    children: []
+    txt: &47 !ruby/object:Chishiki::Text
+      pos: !ruby/object:Chishiki::Pos
+        x: 3
+        y: 22
+        w: 40
+        h: 1
+      list:
+      - !ruby/object:Chishiki::Line
+        pos: !ruby/object:Chishiki::Pos
+          x: 3
+          y: 22
+          w: 40
+          h: 1
+        line: 0
+        msg: to clipboard
+        curs: !ruby/object:Chishiki::Pos
+          x: 15
+          y: 22
+          w: 1
+          h: 1
+      index: 0
+      grow: false
+      shrink: false
+    node: &45 !ruby/object:Chishiki::Label
+      pos: !ruby/object:Chishiki::Pos
+        x: -19
+        y: 22
+        w: 0
+        h: 0
+      msg: "￭═o"
+      color: 1
+    marker: &44 !ruby/object:Chishiki::Label
+      pos: !ruby/object:Chishiki::Pos
+        x: 2
+        y: 22
+        w: 0
+        h: 0
+      msg: "/"
+      color: 2
+    wpipe: &46 !ruby/object:Chishiki::Label
+      pos: !ruby/object:Chishiki::Pos
+        x: -15
+        y: 22
+        w: 0
+        h: 0
+      msg: "═════════════════"
+      color: 4
+    cib: 1
+    height: 0
+    created: false
+    pipe: &43 !ruby/object:Chishiki::Pipe
+      msg: "║"
+      pos: !ruby/object:Chishiki::Pos
+        x: -19
+        y: 21
+        w: 0
+        h: 0
+      parent: *1
+      target: *2
+      change: 13
+      offset: 0
+      amount: 13
+      color: 1
+    widgets:
+    - *43
+    - *44
+    - *45
+    - *46
+    - *47
+  txt: &52 !ruby/object:Chishiki::Text
     pos: !ruby/object:Chishiki::Pos
       x: 0
-      y: 4
+      y: 6
       w: 40
       h: 1
     list:
     - !ruby/object:Chishiki::Line
       pos: !ruby/object:Chishiki::Pos
         x: 0
-        y: 4
+        y: 6
         w: 40
         h: 1
       line: 0
       msg: ej->jp
       curs: !ruby/object:Chishiki::Pos
         x: 6
-        y: 4
+        y: 6
         w: 1
         h: 1
     index: 0
     grow: false
     shrink: false
-  node: &45 !ruby/object:Chishiki::Label
+  node: &50 !ruby/object:Chishiki::Label
     pos: !ruby/object:Chishiki::Pos
       x: -22
-      y: 4
+      y: 6
       w: 0
       h: 0
     msg: "￭═o"
     color: 3
-  marker: &44 !ruby/object:Chishiki::Label
+  marker: &49 !ruby/object:Chishiki::Label
     pos: !ruby/object:Chishiki::Pos
       x: -1
-      y: 4
+      y: 6
       w: 0
       h: 0
     msg: " "
     color: 2
-  wpipe: &46 !ruby/object:Chishiki::Label
+  wpipe: &51 !ruby/object:Chishiki::Label
     pos: !ruby/object:Chishiki::Pos
       x: -18
-      y: 4
+      y: 6
       w: 0
       h: 0
     msg: "═════════════════"
     color: 5
-  cib: 15
+  cib: 17
   height: 0
   created: false
-  pipe: &43 !ruby/object:Chishiki::Pipe
+  pipe: &48 !ruby/object:Chishiki::Pipe
     msg: "║"
     pos: !ruby/object:Chishiki::Pos
       x: -22
-      y: 3
+      y: 5
       w: 0
       h: 0
     parent: !ruby/object:Chishiki::NilBranch {}
@@ -620,9 +698,9 @@
     amount: -1
     color: 1
   widgets:
-  - *43
-  - *44
-  - *45
-  - *46
-  - *47
-:focus: *8
+  - *48
+  - *49
+  - *50
+  - *51
+  - *52
+:focus: *53

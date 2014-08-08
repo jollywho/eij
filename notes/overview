@@ -6,7 +6,9 @@ func -d damage
 func -e jpn->eng
 func -j eng->jpn
 
-loop opts
+-loop opts
+-original input keyword is required
+-each option function uses the previous output as input
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 B)━━━━━━━━━━━━━━━━━━━━━━━━━(Dic)━━━━━━━━━━━━━━━━━━━━━━━━━━━━
