@@ -9,6 +9,10 @@ module Eij
 
   a = Translator.new
 
+  if key.contains_cjk? && ARGV[0] != "-d"
+    a.jap key
+  end
+
   OptionParser.new { |opts|
     opts.banner = "Usage: #{File.basename($0)} key [-j word] | [-e word] | [-d num[,char]]"
 
