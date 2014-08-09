@@ -19,6 +19,11 @@ class String
   def bold;           "\033[1m#{self}\033[22m" end
   def reverse_color;  "\033[7m#{self}\033[27m" end
 
+  def colorize(num)
+    arr = [magenta, cyan, brown, green]
+    arr[num]
+  end
+
   def contains_cjk?
     !!(self =~ /\p{Han}|\p{Katakana}|\p{Hiragana}|\p{Hangul}/)
   end

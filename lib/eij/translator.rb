@@ -39,7 +39,8 @@ module Eij
       prim_list = []
       n = 0
       prim.split("+").each do |str|
-        prim_list[n] = '[' + ch + '] ' + str.strip
+        chm = '[' + ch + '] '
+        prim_list[n] = chm.colorize(n) + str.strip
         ch = ch.ord.next.chr
         n+=1
       end

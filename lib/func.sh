@@ -45,10 +45,10 @@ dfind()
     echo "$m" | sed 's/^/   /'
   elif [[ -n $m && $c -eq 1 ]]; then
     f=$(awk "/$m/{p=1}/Number:/{p=0}p" $FILE)
-    p=$(awk "/$m/{p=1}/MUTANTS:|ONYOMI:/{p=0}p" $FILE | tail -1 )
+    p=$(awk "/$m/{p=1}/MUTANTS:|ONYOMI:/{p=0}p" $FILE)
     echo "$f"
     echo ":;!;"
-    echo "$p"
+    echo "$p" | tail -1
   else
     echo "No matches found: '$1'."
   fi
