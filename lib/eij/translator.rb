@@ -5,6 +5,18 @@ module Eij
     def initialize
     end
 
+    def jap(key)
+      msg = %x{bash -lic "source ./func.sh; jj #{key}"}
+      msg = msg.gsub(":@;", "\n")
+      msg.strip!
+      divs = msg.split(/\n/)
+      prim = divs[1..-1]
+
+      prim_merge = prim.join("\n")
+      prim_merge += "\n"
+      print prim_merge
+    end
+
     def to_eng(key)
       msg = %x{bash -lic "source ./func.sh; je #{key}"}
 
