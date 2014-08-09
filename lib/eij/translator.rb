@@ -7,10 +7,25 @@ module Eij
 
     def to_jap(key)
       msg = %x{bash -lic "source ./func.sh; je #{key}"}
+
       msg = msg.gsub(":@;", "\n")
       msg.strip!
       msg += "\n"
-      print msg
+      divs = msg.split(/[1-9]\./)
+      prim = divs[1..-1]
+
+      ch = 'A'
+      prim_list = []
+      n = 0
+
+      prim.each do |str|
+        chm = "[#{ch}] "
+        prim_list[n] = chm.colorize(n) + str.strip
+        n+=1
+        ch = ch.ord.next.chr
+      end
+      prim_merge = prim_list.join("\n")
+      print prim_merge
     end
 
     def to_eng(key)
@@ -38,12 +53,14 @@ module Eij
       ch = 'A'
       prim_list = []
       n = 0
+      #ch = ch.ord.next.chr
       prim.split("+").each do |str|
-        chm = '[' + ch + '] '
+        chm = "[#{n}] "
         prim_list[n] = chm.colorize(n) + str.strip
-        ch = ch.ord.next.chr
         n+=1
       end
+      prim_merge = prim_list.join(" + ")
+      msg.sub!(prim, "\n" + prim_merge)
 
       #inside full record
       #copy rows between JUKUGO: and {end}|USED IN:|LOOKALIKES:
@@ -52,9 +69,7 @@ module Eij
       #split each 'word' in the line and increment number in front of each split
       #print new color each split
 
-      print prim_list.join(" + ")
-      #print msg.cyan
-
+      print msg
     end
   end
 end
