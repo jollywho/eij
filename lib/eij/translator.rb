@@ -5,7 +5,7 @@ module Eij
     def initialize
     end
 
-    def to_jap(key)
+    def to_eng(key)
       msg = %x{bash -lic "source ./func.sh; je #{key}"}
 
       msg = msg.gsub(":@;", "\n")
@@ -28,7 +28,7 @@ module Eij
       print prim_merge
     end
 
-    def to_eng(key)
+    def to_jap(key)
       msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
       msg = msg.gsub(":@;", "\n")
       msg.strip!
@@ -37,8 +37,12 @@ module Eij
       divs = msg.split(/\n/)
       prim = divs[1..-1]
       prim_list = []
-      ch = 'A'
+      ch = 'a'
 
+      if prim.count > 26
+        print "Results:#{prim.count}. Search query too vague!\n"
+        exit
+      end
       prim.each_with_index do |str, index|
         chm = "{#{ch}} "
         if str.contains_cjk?
@@ -62,11 +66,6 @@ module Eij
       msg.strip!
       msg += "\n"
 
-      #find primitives line
-      #add letter A
-      #split primitives by '+'
-      #add incrementing number in front of each split
-      #print new color each split
       ch = 'A'
       prim_list = []
       #ch = ch.ord.next.chr
@@ -83,6 +82,11 @@ module Eij
       #add letter to each element starting with a B
       #split each 'word' in the line and increment number in front of each split
       #print new color each split
+
+      #from USED IN: to bottom
+      #split USED IN: from full record
+      #specify use with argument -u (damage used in)
+      #add letter to each element starting with a B
 
       print msg
     end
