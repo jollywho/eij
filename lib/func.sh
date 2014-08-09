@@ -1,5 +1,7 @@
 #! /bin/bash
 
+FILE=../data/kanjidicks.txt
+
 sdcv_lookup()
 {
   m=$(sdcv -n --data-dir $1 $2)
@@ -33,13 +35,17 @@ ej()
   echo $m
 }
 
-# find key line in damage
+# find kanjidamage record given a key
 dfind()
 {
-  m=$(grep -A 1 'Number:' ../data/kanjidicks.txt | grep $1)
+  m=$(grep -A 1 'Number:' $FILE | grep $1)
   c=$(echo "$m" | wc -l)
   if [[ -n "$m" && $c -eq 1 ]]; then
-    awk "/$m/{p=1}/Number:/{p=0}p" ../data/kanjidicks.txt
+    f=$(awk "/$m/{p=1}/Number:/{p=0}p" $FILE)
+    p=$(awk "/$m/{p=1}/MUTANTS:|ONYOMI:/{p=0}p" $FILE | tail -1 )
+    echo "$f"
+    echo ":;!;"
+    echo "$p"
   else
     echo "No matches found: '$1'."
   fi
