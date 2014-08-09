@@ -21,7 +21,11 @@ class String
 
   def colorize(num)
     arr = [magenta, cyan, brown, green]
-    arr[num]
+    arr[num % arr.size]
+  end
+
+  def blank?
+    !!(self =~ /\A[[:space:]]*\z/)
   end
 
   def contains_cjk?

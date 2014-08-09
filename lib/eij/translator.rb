@@ -32,7 +32,7 @@ module Eij
       msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
       msg = msg.gsub(":@;", "\n")
       msg.strip!
-      msg = msg.gsub(" ", "_")
+      msg = msg.gsub(" \n", "")
 
       divs = msg.split(/\n/)
       prim = divs[1..-1]
@@ -50,7 +50,9 @@ module Eij
           prim_list[index] = "#{str}"
         end
       end
-      print prim_list.join("\n")
+      prim_merge = prim_list.join("\n")
+      prim_merge += "\n"
+      print prim_merge
     end
 
     def lookup(key)
