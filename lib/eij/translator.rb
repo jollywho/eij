@@ -6,7 +6,7 @@ module Eij
     end
 
     def to_jap(key)
-      msg = %x{bash -c "source ./func.sh; je #{key}"}
+      msg = %x{bash -lic "source ./func.sh; je #{key}"}
       msg = msg.gsub(":@;", "\n")
       msg.strip!
       msg += "\n"
@@ -14,7 +14,7 @@ module Eij
     end
 
     def to_eng(key)
-      msg = %x{bash -c 'source ./func.sh; ej #{key}'}
+      msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
       msg = msg.gsub(":@;", "\n")
       msg.strip!
       msg += "\n"
@@ -22,19 +22,27 @@ module Eij
     end
 
     def lookup(key)
-      msg = %x{bash -c 'source ./func.sh; dfind #{key}'}
+      msg = %x{bash -lic 'source ./func.sh; dfind #{key}'}
       divs = msg.split(":;!;")
       msg = divs[0]
       prim = divs[1]
       msg = msg.gsub(":@;", "\n")
-      msg += "\n"
       msg.strip!
+      msg += "\n"
 
       #find primitives line
       #add letter A
       #split primitives by '+'
       #add incrementing number in front of each split
       #print new color each split
+      ch = 'A'
+      prim_list = []
+      n = 0
+      prim.split("+").each do |str|
+        prim_list[n] = '[' + ch + '] ' + str.strip
+        ch = ch.ord.next.chr
+        n+=1
+      end
 
       #inside full record
       #copy rows between JUKUGO: and {end}|USED IN:|LOOKALIKES:
@@ -43,7 +51,8 @@ module Eij
       #split each 'word' in the line and increment number in front of each split
       #print new color each split
 
-      print msg
+      print prim_list.join(" + ")
+      #print msg.cyan
 
     end
   end

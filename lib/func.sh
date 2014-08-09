@@ -38,9 +38,12 @@ ej()
 # find kanjidamage record given a key
 dfind()
 {
-  m=$(grep -A 1 'Number:' $FILE | grep $1)
+  m=$(grep -A 1 'Number:' $FILE | grep ".*$1.*")
   c=$(echo "$m" | wc -l)
-  if [[ -n "$m" && $c -eq 1 ]]; then
+  if [[ $c -gt 1 ]]; then
+    echo "Disambiguation required:"
+    echo "$m" | sed 's/^/   /'
+  elif [[ -n $m && $c -eq 1 ]]; then
     f=$(awk "/$m/{p=1}/Number:/{p=0}p" $FILE)
     p=$(awk "/$m/{p=1}/MUTANTS:|ONYOMI:/{p=0}p" $FILE | tail -1 )
     echo "$f"
