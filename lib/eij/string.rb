@@ -24,10 +24,6 @@ class String
     arr[num % arr.size]
   end
 
-  def blank?
-    !!(self =~ /\A[[:space:]]*\z/)
-  end
-
   def contains_cjk?
     !!(self =~ /\p{Han}|\p{Katakana}|\p{Hiragana}|\p{Hangul}/)
   end

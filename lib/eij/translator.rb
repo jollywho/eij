@@ -38,15 +38,13 @@ module Eij
       prim = divs[1..-1]
       prim_list = []
       ch = 'A'
-      offset = 0
 
       prim.each_with_index do |str, index|
-        chm = ":#{offset}: "
-        spc = offset.to_s.size == 1 ? " " : ""
+        chm = "{#{ch}} "
         if str.contains_cjk?
-          prim_list[index] = "#{chm.colorize(offset)}#{spc}#{str}"
-          offset += 1
-        elsif !str.blank?
+          prim_list[index] = "#{chm.colorize(index)}#{str}"
+          ch = ch.ord.next.chr
+        else
           prim_list[index] = "#{str}"
         end
       end
