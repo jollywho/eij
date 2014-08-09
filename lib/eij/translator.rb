@@ -10,7 +10,6 @@ module Eij
 
       msg = msg.gsub(":@;", "\n")
       msg.strip!
-      msg += "\n"
       divs = msg.split(/[1-9]\./)
       prim = divs[1..-1]
 
@@ -19,12 +18,13 @@ module Eij
       n = 0
 
       prim.each do |str|
-        chm = "[#{ch}] "
+        chm = "{#{ch}} "
         prim_list[n] = chm.colorize(n) + str.strip
         n+=1
         ch = ch.ord.next.chr
       end
       prim_merge = prim_list.join("\n")
+      prim_merge += "\n"
       print prim_merge
     end
 
@@ -32,8 +32,25 @@ module Eij
       msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
       msg = msg.gsub(":@;", "\n")
       msg.strip!
-      msg += "\n"
-      print msg
+      msg = msg.gsub(" ", "_")
+
+      divs = msg.split(/\n/)
+      prim = divs[1..-1]
+      prim_list = []
+      ch = 'A'
+      offset = 0
+
+      prim.each_with_index do |str, index|
+        chm = ":#{offset}: "
+        spc = offset.to_s.size == 1 ? " " : ""
+        if str.contains_cjk?
+          prim_list[index] = "#{chm.colorize(offset)}#{spc}#{str}"
+          offset += 1
+        elsif !str.blank?
+          prim_list[index] = "#{str}"
+        end
+      end
+      print prim_list.join("\n")
     end
 
     def lookup(key)
@@ -52,15 +69,13 @@ module Eij
       #print new color each split
       ch = 'A'
       prim_list = []
-      n = 0
       #ch = ch.ord.next.chr
-      prim.split("+").each do |str|
-        chm = "[#{n}] "
-        prim_list[n] = chm.colorize(n) + str.strip
-        n+=1
+      prim.split("+").each_with_index do |str, index|
+        chm = ":#{index}: "
+        prim_list[index] = chm.colorize(index) + str.strip
       end
-      prim_merge = prim_list.join(" + ")
-      msg.sub!(prim, "\n" + prim_merge)
+      prim_merge = prim_list.join(" , ")
+      msg.sub!(prim, "\n|".gray + "A".red.reverse_color + "| ".gray + prim_merge)
 
       #inside full record
       #copy rows between JUKUGO: and {end}|USED IN:|LOOKALIKES:
