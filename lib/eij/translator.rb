@@ -7,41 +7,20 @@ module Eij
 
     def jap(key)
       msg = %x{bash -lic "source ./func.sh; jj #{key}"}
-      msg = msg.gsub(":@;", "\n")
-      msg.strip!
-      divs = msg.split(/\n/)
-      prim = divs[1..-1]
-
-      prim_merge = prim.join("\n")
-      prim_merge += "\n"
-      print prim_merge
+      format_jp msg
     end
 
     def to_eng(key)
       msg = %x{bash -lic "source ./func.sh; je #{key}"}
-
-      msg = msg.gsub(":@;", "\n")
-      msg.strip!
-      divs = msg.split(/[1-9]\./)
-      prim = divs[1..-1]
-
-      ch = 'A'
-      prim_list = []
-      n = 0
-
-      prim.each do |str|
-        chm = "{#{ch}} "
-        prim_list[n] = chm.colorize(n) + str.strip
-        n+=1
-        ch = ch.ord.next.chr
-      end
-      prim_merge = prim_list.join("\n")
-      prim_merge += "\n"
-      print prim_merge
+      format_jp msg
     end
 
     def to_jap(key)
       msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
+      format_jp msg
+    end
+
+    def format_jp(msg)
       msg = msg.gsub(":@;", "\n")
       msg.strip!
       msg = msg.gsub(" \n", "")
@@ -50,18 +29,21 @@ module Eij
       prim = divs[1..-1]
       prim_list = []
       ch = 'a'
+      offset = 0
 
-      if prim.count > 26
+      if prim.count > 52
         print "Results:#{prim.count}. Search query too vague!\n"
         exit
       end
       prim.each_with_index do |str, index|
+        ch = 'A' if ch.ord == 123
         chm = "{#{ch}} "
-        if str.contains_cjk?
-          prim_list[index] = "#{chm.colorize(index)}#{str}"
+        if !str.include? "-->"
+          prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
           ch = ch.ord.next.chr
         else
           prim_list[index] = "#{str}"
+          offset += 1
         end
       end
       prim_merge = prim_list.join("\n")
