@@ -56,19 +56,35 @@ module Eij
       divs = msg.split(":;!;")
       msg = divs[0]
       prim = divs[1]
+      jukugo = divs[2]
       msg = msg.gsub(":@;", "\n")
       msg.strip!
       msg += "\n"
 
-      ch = 'A'
+      ch = 'a'
       prim_list = []
-      #ch = ch.ord.next.chr
       prim.split("+").each_with_index do |str, index|
-        chm = ":#{index}: "
+        chm = ":#{index}:"
         prim_list[index] = chm.colorize(index) + str.strip
       end
-      prim_merge = prim_list.join(" , ")
-      msg.sub!(prim, "\n|".gray + "A".red.reverse_color + "| ".gray + prim_merge)
+      prim_merge = prim_list.join(", ")
+      msg.sub!(prim, "\n{#{ch}} ".blue + prim_merge)
+
+      ch = 'b'
+      prim_list = []
+      offset = 0
+      jukugo.split("\n").each_with_index do |str, index|
+        chm = "{#{ch}} "
+       if str[0].to_s.contains_cjk?
+         prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
+         ch = ch.ord.next.chr
+       else
+         prim_list[index] = str
+         offset += 1
+       end
+      end
+      prim_merge = prim_list.join("\n")
+      msg.sub!(jukugo, prim_merge)
 
       #inside full record
       #copy rows between JUKUGO: and {end}|USED IN:|LOOKALIKES:
@@ -83,6 +99,7 @@ module Eij
       #add letter to each element starting with a B
 
       print msg
+      #print jukugo
     end
   end
 end
