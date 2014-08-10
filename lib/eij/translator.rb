@@ -89,12 +89,9 @@ module Eij
       prim_merge = prim_list.join("\n")
       msg.sub!(jukugo, prim_merge)
 
-      #from USED IN: to bottom
-      #split USED IN: from full record
-      #specify use with argument -u (damage used in)
-      #add letter to each element starting with a B
       prim_list = []
       offset = 0
+      strsize = 0
       ch = ch.ord.next.chr
       usedin.split("\n").each_with_index do |str, index|
         ch = 'A' if ch.ord == 123
@@ -103,7 +100,12 @@ module Eij
           prim_list[index] = "\n" + str.strip + "\n"
           offset += 1
         elsif str.strip.size > 0
-          prim_list[index] = "#{chm.colorize(index-offset)}#{str.strip}"
+          if strsize + str.size * 2 >= col.to_i
+            newl = "\n"
+            strsize = 0
+          end
+          prim_list[index] = "#{chm.colorize(index-offset)}#{str.strip}#{newl}"
+          strsize += str.size
           ch = ch.ord.next.chr
         end
       end
