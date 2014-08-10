@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Eij
   class Translator
     attr_reader :msg
@@ -53,10 +54,12 @@ module Eij
 
     def lookup(key)
       msg = %x{bash -lic 'source ./func.sh; dfind #{key}'}
+      col = %x{bash -lic 'echo $COLUMNS'}
       divs = msg.split(":;!;")
       msg = divs[0]
       prim = divs[1]
       jukugo = divs[2]
+      usedin = divs[3]
       msg = msg.gsub(":@;", "\n")
       msg.strip!
       msg += "\n"
@@ -75,31 +78,40 @@ module Eij
       offset = 0
       jukugo.split("\n").each_with_index do |str, index|
         chm = "{#{ch}} "
-       if str[0].to_s.contains_cjk?
-         prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
-         ch = ch.ord.next.chr
-       else
-         prim_list[index] = str
-         offset += 1
-       end
+        if str[0].to_s.contains_cjk?
+          prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
+          ch = ch.ord.next.chr
+        else
+          prim_list[index] = str
+          offset += 1
+        end
       end
       prim_merge = prim_list.join("\n")
       msg.sub!(jukugo, prim_merge)
-
-      #inside full record
-      #copy rows between JUKUGO: and {end}|USED IN:|LOOKALIKES:
-      #use ruby array[0] to check for kanji lines
-      #add letter to each element starting with a B
-      #split each 'word' in the line and increment number in front of each split
-      #print new color each split
 
       #from USED IN: to bottom
       #split USED IN: from full record
       #specify use with argument -u (damage used in)
       #add letter to each element starting with a B
-
+      prim_list = []
+      offset = 0
+      ch = ch.ord.next.chr
+      usedin.split("\n").each_with_index do |str, index|
+        ch = 'A' if ch.ord == 123
+        chm = "{#{ch}}"
+        if str == "USED IN:"
+          prim_list[index] = "\n" + str.strip + "\n"
+          offset += 1
+        elsif str.strip.size > 0
+          prim_list[index] = "#{chm.colorize(index-offset)}#{str.strip}"
+          ch = ch.ord.next.chr
+        end
+      end
+      prim_merge = prim_list.join("")
+      prim_merge.gsub!(", , ", "")
+      msg.sub!(usedin, prim_merge)
+      msg += "\n"
       print msg
-      #print jukugo
     end
   end
 end

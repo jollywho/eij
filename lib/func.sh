@@ -47,11 +47,14 @@ dfind()
     f=$(awk "/$m/{p=1}/Number:/{p=0}p" $FILE)
     p=$(awk "/$m/{p=1}/MUTANTS:|ONYOMI:/{p=0}p" $FILE)
     j=$(echo "$f" | awk "/JUKUGO:/{p=1}/USED IN:|LOOKALIKES:/{p=0}p")
+    u=$(echo "$f" | sed -n '/USED IN:/,$p')
     echo "$f"
     echo ":;!;"
     echo "$p" | tail -1
     echo ":;!;"
     echo "$j"
+    echo ":;!;"
+    echo "$u"
   else
     echo "No matches found: '$1'."
   fi

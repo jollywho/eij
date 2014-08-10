@@ -1,3 +1,4 @@
+# encoding: utf-8
 class String
 
   def black;          "\033[30m#{self}\033[0m" end
