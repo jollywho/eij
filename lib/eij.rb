@@ -36,7 +36,8 @@ module Eij
     opts.on( '-d', "--list [char]", Array, 'damage') do |v|
       a.lookup key
       if !v.nil?
-        a.grab_item v[1] if v.size > 1
+        a.grab_item v[1] if v.size == 2
+        a.grab_inner_item v[1],v[2] if v.size == 3
       end
     end
 

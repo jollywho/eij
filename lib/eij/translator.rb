@@ -33,15 +33,14 @@ module Eij
       else
         @msg = @res[key][1]
       end
-      @msg += "\n"
     end
 
     def grab_inner_item(key, i)
-      @msg = @res[key][i.to_i] + "\n"
+      @msg = @res[key][i.to_i]
     end
 
     def out
-      print @msg
+      print @msg.strip + "\n"
     end
 
     def format_jp
@@ -97,9 +96,9 @@ module Eij
     def lookup_prims(div)
       prim_list = []
       div.split("+").each_with_index do |str, index|
-        chm = ":#{index}:"
+        chm = ":#{index+1}:"
         prim_list[index] = chm.colorize(index) + str.strip
-        @res[@ch] = str
+        @res[@ch][index+1] = " " + str.strip + " "
       end
       prim_merge = prim_list.join(", ")
       @msg.sub!(div, "\n{#{@ch}} ".blue + prim_merge)
@@ -148,7 +147,6 @@ module Eij
       prim_merge = prim_list.join("")
       prim_merge.gsub!(", , ", "")
       @msg.sub!(div, prim_merge)
-      @msg += "\n"
     end
   end
 end
