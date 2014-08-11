@@ -25,10 +25,14 @@ module Eij
     end
 
     def grab_item(key)
-      @msg = @res[key].map do |x|
-        "#{x[0]}#{x[1]}"
+      if @res[key].size > 1
+        @msg = @res[key].map do |x|
+          "#{x[0]}#{x[1]}"
+        end
+        @msg = @msg.join
+      else
+        @msg = @res[key][1]
       end
-      @msg = @msg.join
       @msg += "\n"
     end
 
@@ -59,7 +63,6 @@ module Eij
         chm = "{#{@ch}} "
         if !str.include? "-->"
           prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
-          #@res[@ch] = str.strip
 
           indx = 0
           str.split(/\d\./).each do |split|
