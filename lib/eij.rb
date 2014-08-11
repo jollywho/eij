@@ -23,6 +23,7 @@ module Eij
 
     opts.on( '-j', '--english [word]', 'to japanese') do |v|
       a.to_jap key
+      a.grab_item v[1] if v.size > 1
     end
 
     opts.on( '-d', "--list [num[, char]]", Array, 'damage') do |v|
@@ -30,5 +31,5 @@ module Eij
     end
 
   }.parse!
-
+  print a.out
 end

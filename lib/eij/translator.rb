@@ -6,6 +6,7 @@ module Eij
       @ch = 'a'
       @col = %x{bash -lic 'echo $COLUMNS'}
       @msg = ""
+      @res = {}
     end
 
     def jap(key)
@@ -21,6 +22,14 @@ module Eij
     def to_jap(key)
       @msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
       format_jp
+    end
+
+    def grab_item(key)
+       @msg = @res[key] + "\n"
+    end
+
+    def out
+      print @msg
     end
 
     def format_jp
@@ -42,6 +51,7 @@ module Eij
         chm = "{#{@ch}} "
         if !str.include? "-->"
           prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
+          @res[@ch] = prim_list[index]
           @ch = @ch.ord.next.chr
         else
           prim_list[index] = "#{str}"
@@ -50,7 +60,7 @@ module Eij
       end
       prim_merge = prim_list.join("\n")
       prim_merge += "\n"
-      print prim_merge
+      @msg.sub!(@msg, prim_merge)
     end
 
     def lookup(key)
