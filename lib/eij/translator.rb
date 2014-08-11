@@ -25,10 +25,14 @@ module Eij
     end
 
     def grab_item(key)
-      @msg = @res[key] + "\n"
+      @msg = @res[key].map do |x|
+        "#{x[0]}#{x[1]}"
+      end
+      @msg = @msg.join
+      @msg += "\n"
     end
 
-    def grab_inner_item(key,i)
+    def grab_inner_item(key, i)
       @msg = @res[key][i.to_i] + "\n"
     end
 
