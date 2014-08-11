@@ -6,7 +6,7 @@ module Eij
       @ch = 'a'
       @col = %x{bash -lic 'echo $COLUMNS'}
       @msg = ""
-      @res = {}
+      @res = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
     end
 
     def jap(key)
@@ -28,8 +28,8 @@ module Eij
       @msg = @res[key] + "\n"
     end
 
-    def grab_inner_item(key)
-      @msg = @res[key] + "\n"
+    def grab_inner_item(key,i)
+      @msg = @res[key][i.to_i] + "\n"
     end
 
     def out
@@ -55,7 +55,15 @@ module Eij
         chm = "{#{@ch}} "
         if !str.include? "-->"
           prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
-          @res[@ch] = str.strip
+          #@res[@ch] = str.strip
+
+          indx = 0
+          str.split(/\d\./).each do |split|
+            if split.split.size > 0
+              indx += 1
+              @res[@ch][indx] = "#{split}"
+            end
+          end
           @ch = @ch.ord.next.chr
         else
           prim_list[index] = "#{str}"

@@ -17,10 +17,11 @@ module Eij
   OptionParser.new { |opts|
     opts.banner = "Usage: #{File.basename($0)} key [-j word] | [-e word] | [-d num[,char]]"
 
-    opts.on( '-e', '--japanese [word]', 'to english') do |v|
+    opts.on( '-e', '--japanese [word]', Array, 'to english') do |v|
       a.to_eng key
       if !v.nil?
-        a.grab_item v[1] if v.size > 1
+        a.grab_item v[1] if v.size == 2
+        a.grab_inner_item v[1],v[2] if v.size == 3
       end
     end
 
