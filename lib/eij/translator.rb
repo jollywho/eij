@@ -25,7 +25,7 @@ module Eij
     end
 
     def grab_item(key)
-       @msg = @res[key] + "\n"
+      @msg = @res[key] + "\n"
     end
 
     def out
@@ -73,7 +73,6 @@ module Eij
       lookup_prims  divs[1] if divs[1].size > 0
       lookup_jukugo divs[2] if divs[2].size > 0
       lookup_usedin divs[3] if divs[3].size > 0
-      print @msg
     end
 
     def lookup_prims(div)
@@ -81,6 +80,7 @@ module Eij
       div.split("+").each_with_index do |str, index|
         chm = ":#{index}:"
         prim_list[index] = chm.colorize(index) + str.strip
+        @res[@ch] = prim_list[index]
       end
       prim_merge = prim_list.join(", ")
       @msg.sub!(div, "\n{#{@ch}} ".blue + prim_merge)
@@ -94,6 +94,7 @@ module Eij
         chm = "{#{@ch}} "
         if str[0].to_s.contains_cjk?
           prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
+          @res[@ch] = prim_list[index]
           @ch = @ch.ord.next.chr
         else
           prim_list[index] = str
@@ -120,6 +121,7 @@ module Eij
             strsize = 0
           end
           prim_list[index] = "#{chm.colorize(index-offset)}#{str.strip}#{newl}"
+          @res[@ch] = prim_list[index]
           strsize += str.size
           @ch = @ch.ord.next.chr
         end

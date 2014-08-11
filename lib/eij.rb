@@ -19,15 +19,23 @@ module Eij
 
     opts.on( '-e', '--japanese [word]', 'to english') do |v|
       a.to_eng key
+      if !v.nil?
+        a.grab_item v[1] if v.size > 1
+      end
     end
 
     opts.on( '-j', '--english [word]', 'to japanese') do |v|
       a.to_jap key
-      a.grab_item v[1] if v.size > 1
+      if !v.nil?
+        a.grab_item v[1] if v.size > 1
+      end
     end
 
-    opts.on( '-d', "--list [num[, char]]", Array, 'damage') do |v|
+    opts.on( '-d', "--list [char]", Array, 'damage') do |v|
       a.lookup key
+      if !v.nil?
+        a.grab_item v[1] if v.size > 1
+      end
     end
 
   }.parse!
