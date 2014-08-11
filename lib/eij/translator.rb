@@ -28,6 +28,10 @@ module Eij
       @msg = @res[key] + "\n"
     end
 
+    def grab_inner_item(key)
+      @msg = @res[key] + "\n"
+    end
+
     def out
       print @msg
     end
@@ -51,7 +55,7 @@ module Eij
         chm = "{#{@ch}} "
         if !str.include? "-->"
           prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
-          @res[@ch] = prim_list[index]
+          @res[@ch] = str.strip
           @ch = @ch.ord.next.chr
         else
           prim_list[index] = "#{str}"
@@ -80,7 +84,7 @@ module Eij
       div.split("+").each_with_index do |str, index|
         chm = ":#{index}:"
         prim_list[index] = chm.colorize(index) + str.strip
-        @res[@ch] = prim_list[index]
+        @res[@ch] = str
       end
       prim_merge = prim_list.join(", ")
       @msg.sub!(div, "\n{#{@ch}} ".blue + prim_merge)
@@ -94,7 +98,7 @@ module Eij
         chm = "{#{@ch}} "
         if str[0].to_s.contains_cjk?
           prim_list[index] = "#{chm.colorize(index-offset)}#{str}"
-          @res[@ch] = prim_list[index]
+          @res[@ch] = str.strip
           @ch = @ch.ord.next.chr
         else
           prim_list[index] = str
@@ -121,7 +125,7 @@ module Eij
             strsize = 0
           end
           prim_list[index] = "#{chm.colorize(index-offset)}#{str.strip}#{newl}"
-          @res[@ch] = prim_list[index]
+          @res[@ch] = str.strip
           strsize += str.size
           @ch = @ch.ord.next.chr
         end
