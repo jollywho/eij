@@ -2,29 +2,39 @@
 module Eij
   class Translator
 
-    def initialize
-      @ch = 'a'
+    def initialize(key)
       @col = %x{bash -lic 'echo $COLUMNS'}
-      @msg = ""
+      @msg = key
       @res = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
+      ch_reset
     end
 
-    def jap(key)
-      @msg = %x{bash -lic "source ./func.sh; jj #{key}"}
+    def ch_reset
+      @ch = 'a'
+    end
+
+    def jap
+      @msg = %x{bash -lic "source ./func.sh; jj #{@msg}"}
       format_jp
     end
 
-    def to_eng(key)
-      @msg = %x{bash -lic "source ./func.sh; je #{key}"}
+    def to_eng
+      @msg = %x{bash -lic "source ./func.sh; je #{@msg}"}
+      print @msg
       format_jp
     end
 
-    def to_jap(key)
-      @msg = %x{bash -lic 'source ./func.sh; ej #{key}'}
-      format_jp
+    def to_jap
+      if @msg.contains_cjk?
+        jap
+      else
+        @msg = %x{bash -lic 'source ./func.sh; ej #{@msg}'}
+        format_jp
+      end
     end
 
     def grab_item(key)
+      ch_reset
       if @res[key].size > 1
         @msg = @res[key].map do |x|
           "#{x[0]}#{x[1]}"
@@ -36,6 +46,7 @@ module Eij
     end
 
     def grab_inner_item(key, i)
+      ch_reset
       @msg = @res[key][i.to_i]
     end
 
@@ -81,8 +92,8 @@ module Eij
       @msg.sub!(@msg, prim_merge)
     end
 
-    def lookup(key)
-      @msg = %x{bash -lic 'source ./func.sh; dfind #{key}'}
+    def lookup
+      @msg = %x{bash -lic 'source ./func.sh; dfind #{@msg}'}
       divs = @msg.split(":;!;")
       @msg = divs[0]
       @msg = @msg.gsub(":@;", "\n")
