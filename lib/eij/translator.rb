@@ -18,12 +18,12 @@ module Eij
     end
 
     def jap
-      @msg = %x{bash -lic "source ./func.sh; jj #{@msg}"}
+      @msg = %x{bash -ic 'source func.sh; jj #{@msg}'}
       format_jp
     end
 
     def to_eng
-      @msg = %x{bash -lic "source ./func.sh; je #{@msg}"}
+      @msg = %x{bash -ic 'source func.sh; je #{@msg}''}
       format_jp
     end
 
@@ -31,7 +31,7 @@ module Eij
       if @msg.contains_cjk?
         jap
       else
-        @msg = %x{bash -lic 'source ./func.sh; ej #{@msg}'}
+        @msg = %x{bash -ic 'source func.sh; ej #{@msg}'}
         format_jp
       end
     end
@@ -114,7 +114,7 @@ module Eij
     end
 
     def lookup
-      @msg = %x{bash -lic 'source ./func.sh; dfind #{@msg}'}
+      @msg = %x{bash -lic 'source func.sh; dfind #{@msg}'}
       divs = @msg.split(":;!;")
       @msg = divs[0]
       @msg = @msg.gsub(":@;", "\n")
