@@ -24,7 +24,6 @@ module Eij
 
     def to_eng
       @msg = %x{bash -lic "source ./func.sh; je #{@msg}"}
-      print @msg
       format_jp
     end
 
