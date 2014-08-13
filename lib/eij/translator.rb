@@ -3,6 +3,7 @@ module Eij
   class Translator
 
     def initialize(key)
+      @src = File.dirname(__FILE__) + "/func.sh"
       @col = %x{bash -lic 'echo $COLUMNS'}
       @msg = key
       @res = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
@@ -18,12 +19,12 @@ module Eij
     end
 
     def jap
-      @msg = %x{bash -ic 'source func.sh; jj #{@msg}'}
+      @msg = %x{bash -lic 'source #{@src}; jj #{@msg}'}
       format_jp
     end
 
     def to_eng
-      @msg = %x{bash -ic 'source func.sh; je #{@msg}''}
+      @msg = %x{bash -lic 'source #{@src}; je #{@msg}'}
       format_jp
     end
 
@@ -31,7 +32,7 @@ module Eij
       if @msg.contains_cjk?
         jap
       else
-        @msg = %x{bash -ic 'source func.sh; ej #{@msg}'}
+        @msg = %x{bash -lic "source #{@src}; ej #{@msg}"}
         format_jp
       end
     end
