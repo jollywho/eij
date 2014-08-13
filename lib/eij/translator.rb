@@ -13,6 +13,10 @@ module Eij
       @ch = 'a'
     end
 
+    def exit_msg(res)
+      "Results: #{res}. Search query too vague!\n"
+    end
+
     def jap
       @msg = %x{bash -lic "source ./func.sh; jj #{@msg}"}
       format_jp
@@ -65,7 +69,7 @@ module Eij
       offset = 0
 
       if prim.count > 52
-        print "Results:#{prim.count}. Search query too vague!\n"
+        print exit_msg prim.count
         exit
       end
       prim.each_with_index do |str, index|
@@ -92,16 +96,42 @@ module Eij
       @msg.sub!(@msg, prim_merge)
     end
 
+    def print_num_lines
+      lst = {}
+      @msg.split("\n").each_with_index do |str, index|
+        if index > 0
+          print "#{(index).to_s.rjust(2).colorize(index)}#{str}\n"
+          lst[(index).to_s] = str.split(" ")[0]
+        end
+      end
+
+      print "#: "
+      begin
+        @msg = lst[gets.strip]
+      rescue Exception => e
+        exit
+      end
+      lookup
+    end
+
     def lookup
       @msg = %x{bash -lic 'source ./func.sh; dfind #{@msg}'}
       divs = @msg.split(":;!;")
       @msg = divs[0]
       @msg = @msg.gsub(":@;", "\n")
       @msg.strip!
-      @msg += "\n"
-      lookup_prims  divs[1] if divs[1].size > 0
-      lookup_jukugo divs[2] if divs[2].size > 0
-      lookup_usedin divs[3] if divs[3].size > 0
+      if @msg.include? "No matches found:"
+        print exit_msg 0
+        exit
+      elsif @msg.include? "Disambiguation required:"
+        print "Disambiguation required:\n"
+        print_num_lines
+      else
+        @msg += "\n"
+        lookup_prims  divs[1] if divs[1].size > 0
+        lookup_jukugo divs[2] if divs[2].size > 0
+        lookup_usedin divs[3] if divs[3].size > 0
+      end
     end
 
     def lookup_prims(div)

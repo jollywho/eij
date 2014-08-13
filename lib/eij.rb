@@ -35,6 +35,7 @@ module Eij
 
     opts.on( '-d', "--list [char]", Array, 'damage') do |v|
       a.lookup
+      puts v
       if !v.nil?
         a.grab_item v[1] if v.size == 2
         a.grab_inner_item v[1],v[2] if v.size == 3
