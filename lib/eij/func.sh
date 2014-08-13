@@ -1,7 +1,5 @@
 #! /bin/bash
 
-FILE=../data/kanjidicks.txt
-
 sdcv_lookup()
 {
   m=$(sdcv -n --data-dir $1 $2)
@@ -38,6 +36,7 @@ ej()
 # find kanjidamage record given a key
 dfind()
 {
+  FILE=$2
   m=$(grep -A 1 'Number:' $FILE | grep "$1")
   c=$(echo "$m" | wc -l)
   if [[ $c -gt 1 ]]; then

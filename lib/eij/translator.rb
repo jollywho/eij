@@ -4,6 +4,7 @@ module Eij
 
     def initialize(key)
       @src = File.dirname(__FILE__) + "/func.sh"
+      @func = File.dirname(__FILE__) + "/../../data/kanjidicks.txt"
       @col = %x{bash -lic 'echo $COLUMNS'}
       @msg = key
       @res = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
@@ -115,7 +116,7 @@ module Eij
     end
 
     def lookup
-      @msg = %x{bash -lic 'source #{@src}; dfind #{@msg}'}
+      @msg = %x{bash -ic 'source #{@src}; dfind #{@msg} #{@func}'}
       divs = @msg.split(":;!;")
       @msg = divs[0]
       @msg = @msg.gsub(":@;", "\n")
