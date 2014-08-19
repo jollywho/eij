@@ -50,9 +50,17 @@ module Eij
       end
     end
 
+    def grab_char(ch)
+      @msg = @msg[ch.to_i-1].strip + "\n"
+    end
+
+    def grab_split(i)
+      @msg = @msg.split(' ')[i.to_i-1].strip + "\n"
+    end
+
     def grab_inner_item(key, i)
       ch_reset
-      @msg = @res[key][i.to_i]
+      @msg = @res[key][i.to_i].strip + "\n"
     end
 
     def out
