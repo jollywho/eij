@@ -124,7 +124,7 @@ module Eij
     end
 
     def lookup
-      @msg = %x{bash -ic 'source #{@src}; dfind #{@msg} #{@func}'}
+      @msg = %x{bash -ic 'source #{@src}; dfind #{@msg.strip} #{@func}'}
       divs = @msg.split(":;!;")
       @msg = divs[0]
       @msg = @msg.gsub(":@;", "\n")
