@@ -1,17 +1,21 @@
 # encoding: utf-8
 require 'optparse'
-require 'eij/string.rb'
-require 'eij/translator.rb'
+require './eij/string.rb'
+require './eij/translator.rb'
 
 module Eij
 
   key = ARGV[0]
   ARGV.shift
 
-  a = Translator.new(key)
+  cjk_args = key.split(',')
+  a = Translator.new(cjk_args[0])
 
   if key.contains_cjk? && ARGV.size == 0
     a.jap
+    a.grab_item cjk_args[1] if cjk_args.size == 2
+    a.grab_inner_item cjk_args[1], cjk_args[2] if cjk_args.size >= 3
+    a.grab_char cjk_args[3] if cjk_args.size >= 4
   end
 
   OptionParser.new { |opts|
