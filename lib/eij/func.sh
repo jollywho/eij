@@ -43,6 +43,7 @@ dfind()
     echo "Disambiguation required:"
     echo "$m" | sed 's/^/   /'
   elif [[ -n $m && $c -eq 1 ]]; then
+    m=$(echo $m | sed 's#/#\\/#g')
     f=$(awk "/$m/{p=1}/Number:/{p=0}p" $FILE)
     p=$(awk "/$m/{p=1}/MUTANTS:|ONYOMI:/{p=0}p" $FILE)
     j=$(echo "$f" | awk "/JUKUGO:/{p=1}/USED IN:|LOOKALIKES:/{p=0}p")
