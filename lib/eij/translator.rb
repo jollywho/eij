@@ -64,6 +64,7 @@ module Eij
     end
 
     def out
+      @msg = %x{source #{@src}; fmt_msg "#{@msg}"}
       print @msg.strip + "\n"
     end
 

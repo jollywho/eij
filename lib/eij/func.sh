@@ -59,3 +59,8 @@ dfind()
     echo "No matches found: '$1'."
   fi
 }
+
+fmt_msg()
+{
+  echo "$@" | fmt
+}

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'optparse'
-require 'eij/string.rb'
-require 'eij/translator.rb'
+require './eij/string.rb'
+require './eij/translator.rb'
 
 module Eij
 
