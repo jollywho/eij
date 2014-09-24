@@ -177,22 +177,25 @@ module Eij
     def lookup_usedin(div)
       prim_list = []
       offset = 0
-      strsize = 0
+      strsizetotal = 0
       div.split("\n").each_with_index do |str, index|
-        @ch = 'A' if @ch.ord == 123
+        if @ch[-1] == 'z'
+          @ch[0,0] = '1'
+          @ch[-1] = 'a'
+        end
         chm = "{#{@ch}}"
         if str == "USED IN:"
           prim_list[index] = "\n" + str.strip + "\n"
           offset += 1
         elsif str.strip.size > 0
-          if strsize + str.size * 2 >= @col.to_i
+          if strsizetotal + str.size + @ch.size >= @col.to_i/2
             newl = "\n"
-            strsize = 0
+            strsizetotal = 0
           end
           prim_list[index] = "#{chm.colorize(index-offset)}#{str.strip}#{newl}"
           @res[@ch][1] = str.strip
-          strsize += str.size
-          @ch = @ch.ord.next.chr
+          strsizetotal += str.size
+          @ch[-1] = @ch[-1].ord.next.chr
         end
       end
       prim_merge = prim_list.join("")
