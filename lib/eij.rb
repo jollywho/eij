@@ -16,10 +16,11 @@ module Eij
   a = Translator.new(cjk_args[0])
 
   if key.contains_cjk? && ARGV.size == 0
-    a.jap
+    a.lookup
     a.grab_item cjk_args[1] if cjk_args.size == 2
-    a.grab_inner_item cjk_args[1], cjk_args[2] if cjk_args.size >= 3
-    a.grab_char cjk_args[3] if cjk_args.size >= 4
+    a.grab_inner_item cjk_args[1],v[2] if cjk_args.size >= 3
+    a.grab_split  cjk_args[3] if cjk_args.size >= 4
+    a.grab_char cjk_args[4] if cjk_args.size >= 5
   end
 
   OptionParser.new { |opts|
