@@ -5,6 +5,9 @@ require 'eij/translator.rb'
 
 module Eij
 
+  if ARGV.size == 0
+    exit
+  end
   key = ARGV[0]
   ARGV.shift
 
