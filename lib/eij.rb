@@ -8,6 +8,7 @@ module Eij
   if ARGV.size == 0
     exit
   end
+  system "clear"
   key = ARGV[0]
   ARGV.shift
 
