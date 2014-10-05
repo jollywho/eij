@@ -4,4 +4,4 @@ Kanjidamage + Stardic + line grab
 
 ## Installation
 
-UNDER CONSTRUCTION. USE AT OWN RISK.
+![Screenshot](jollywho.github.com/eij/master/ss.png)
